@@ -46,30 +46,30 @@ const WhySection = () => {
   ];
 
   return (
-    <section id="why" className="py-20 bg-background">
+    <section id="why" className="py-12 md:py-16 lg:py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-3 md:mb-4">
           Why Stacked?
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-sm md:text-base text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto px-4">
           We're Bitcoin-only because we believe in focused simplicity. No altcoin noise, just the hardest money ever created.
         </p>
 
         {/* Main feature cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
           {features.map((feature, index) => (
             <Card key={index} className="bg-card border-border hover:border-primary/50 transition-colors">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
+              <CardHeader className="pb-3 md:pb-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
+                  <feature.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{feature.title}</CardTitle>
-                <CardDescription className="text-muted-foreground">
+                <CardTitle className="text-lg md:text-xl">{feature.title}</CardTitle>
+                <CardDescription className="text-sm md:text-base text-muted-foreground">
                   {feature.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <Button variant="outline" className="text-primary border-primary hover:bg-primary hover:text-primary-foreground">
+              <CardContent className="pt-0">
+                <Button variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-primary-foreground">
                   {feature.cta}
                 </Button>
               </CardContent>
@@ -78,15 +78,15 @@ const WhySection = () => {
         </div>
 
         {/* Additional features */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {additionalFeatures.map((feature, index) => (
-            <div key={index} className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
-                <feature.icon className="w-5 h-5 text-primary" />
+            <div key={index} className="flex gap-3 md:gap-4">
+              <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-secondary flex items-center justify-center">
+                <feature.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <h3 className="font-semibold text-foreground mb-1 text-sm md:text-base">{feature.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground">{feature.description}</p>
               </div>
             </div>
           ))}

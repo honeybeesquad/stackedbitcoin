@@ -57,9 +57,9 @@ export default {
 				border: 'hsl(var(--sidebar-border))',
 				ring: 'hsl(var(--sidebar-ring))'
 			},
-			bitcoin: {
-				orange: 'hsl(var(--bitcoin-orange))',
-				dark: 'hsl(var(--bitcoin-dark))'
+			stacked: {
+				teal: 'hsl(var(--stacked-teal))',
+				dark: 'hsl(var(--stacked-dark))'
 			}
 		},
   		borderRadius: {
