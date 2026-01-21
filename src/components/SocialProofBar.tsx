@@ -1,16 +1,14 @@
-import { Banknote, CreditCard, Zap, Shield, Smartphone } from "lucide-react";
+import { Zap, Shield, Smartphone, Building } from "lucide-react";
 
 const SocialProofBar = () => {
   const stats = [
     { value: "4.7/5", label: "Trustpilot Rating" },
     { value: "1%", label: "Low Trading Fee" },
-    { value: "2024", label: "Startup of the Year" },
-    { value: "24/7", label: "Lightning Network" },
+    { value: "2024", label: "Established" },
   ];
 
   const features = [
-    { icon: Banknote, label: "Bank Transfer" },
-    { icon: CreditCard, label: "POLi Payment" },
+    { icon: Building, label: "Open Banking Payments" },
     { icon: Zap, label: "Lightning Fast" },
     { icon: Shield, label: "Self Custody" },
     { icon: Smartphone, label: "Mobile App" },
@@ -34,9 +32,9 @@ const SocialProofBar = () => {
 
         {/* Stats */}
         <p className="text-center text-sm md:text-base text-muted-foreground mb-6 md:mb-8">
-          New Zealand's Bitcoin-only platform since 2021
+          Trusted by Thousands of Kiwis
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-3 gap-4 md:gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-1">
