@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Bitcoin, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logoWideSlate from "@/assets/logo-wide-slate.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,12 +11,13 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3 md:py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <Bitcoin className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="text-lg md:text-xl font-bold text-foreground">Stacked</span>
-          </div>
+          <a href="/" className="flex items-center">
+            <img 
+              src={logoWideSlate} 
+              alt="Stacked" 
+              className="h-8 md:h-10 w-auto"
+            />
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
