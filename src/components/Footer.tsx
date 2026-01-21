@@ -1,4 +1,4 @@
-import { Bitcoin } from "lucide-react";
+import logoWideSlate from "@/assets/logo-wide-slate.png";
 
 const Footer = () => {
   return (
@@ -7,12 +7,13 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                <Bitcoin className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-lg md:text-xl font-bold text-foreground">Stacked</span>
-            </div>
+            <a href="/" className="inline-block mb-4">
+              <img 
+                src={logoWideSlate} 
+                alt="Stacked" 
+                className="h-8 w-auto"
+              />
+            </a>
             <p className="text-xs md:text-sm text-muted-foreground">
               New Zealand's trusted Bitcoin-only platform. Building financial freedom, one sat at a time.
             </p>
