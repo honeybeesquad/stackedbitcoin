@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Smartphone, Shield, Headphones, Zap, Repeat, Wallet } from "lucide-react";
+import { Smartphone, Shield, Headphones } from "lucide-react";
 
 const WhySection = () => {
   const features = [
@@ -20,30 +20,13 @@ const WhySection = () => {
     },
     {
       icon: Headphones,
-      title: "NZ Support",
+      title: "Support",
       description: "Real humans, based in New Zealand. Get help from our award-winning support team whenever you need it.",
       cta: "Contact us",
       ctaHref: "#",
     },
   ];
 
-  const additionalFeatures = [
-    {
-      icon: Zap,
-      title: "Lightning Network",
-      description: "Instant transactions with minimal fees using Bitcoin's Lightning Network.",
-    },
-    {
-      icon: Repeat,
-      title: "Auto Stack",
-      description: "Set up recurring buys from just $10 and build your stack automatically.",
-    },
-    {
-      icon: Wallet,
-      title: "Open Banking",
-      description: "Direct NZ bank payments via Akahu – no manual deposits needed.",
-    },
-  ];
 
   return (
     <section id="why" className="py-12 md:py-16 lg:py-20 bg-background">
@@ -77,20 +60,6 @@ const WhySection = () => {
           ))}
         </div>
 
-        {/* Additional features */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {additionalFeatures.map((feature, index) => (
-            <div key={index} className="flex gap-3 md:gap-4">
-              <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-secondary flex items-center justify-center">
-                <feature.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-1 text-sm md:text-base">{feature.title}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground">{feature.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

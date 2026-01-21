@@ -10,15 +10,30 @@ const HeroSection = () => {
           {/* Content - Shows second on mobile, first on desktop */}
           <div className="max-w-xl text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 md:mb-6">
-              Stack sats.{" "}
-              <span className="text-primary">Build wealth.</span>
+              Bitcoin is better money.{" "}
+              <span className="text-primary">Stack sats with Stacked.</span>
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8">
               New Zealand's most trusted Bitcoin-only platform. Buy, sell, and hold Bitcoin with the lowest fees and lightning-fast transactions.
             </p>
 
+            {/* Email Signup Form */}
+            <form className="flex flex-col sm:flex-row gap-3 mb-4 md:mb-6 justify-center lg:justify-start">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 max-w-xs px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+              >
+                Get Started
+              </button>
+            </form>
+
             {/* App Store Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-4 md:mb-6 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <a 
                 href="https://apps.apple.com" 
                 target="_blank" 
@@ -48,10 +63,6 @@ const HeroSection = () => {
                 </div>
               </a>
             </div>
-
-            <p className="text-sm text-muted-foreground">
-              ★ Rated 4.7/5 on Trustpilot · Award-winning support
-            </p>
           </div>
 
           {/* Video - Shows first on mobile */}

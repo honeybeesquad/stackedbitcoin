@@ -32,8 +32,8 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Everything you need to{" "}
-            <span className="text-primary">stack sats</span>
+            Everything you need to make bitcoin{" "}
+            <span className="text-primary">part of your every day life</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
             Powerful features designed to make Bitcoin simple, secure, and accessible for every Kiwi.
