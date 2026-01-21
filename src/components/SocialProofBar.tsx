@@ -4,7 +4,7 @@ const SocialProofBar = () => {
   const stats = [
     { value: "4.7/5", label: "Trustpilot Rating" },
     { value: "30B", label: "Sats Monthly Volume" },
-    { value: "1%", label: "Low Trading Fee" },
+    { value: "1000s", label: "Trusted Kiwis" },
     { value: "2024", label: "Established" },
   ];
 
@@ -32,9 +32,6 @@ const SocialProofBar = () => {
         <div className="border-t border-border mb-8 md:mb-10" />
 
         {/* Stats */}
-        <p className="text-center text-sm md:text-base text-muted-foreground mb-6 md:mb-8">
-          Trusted by Thousands of Kiwis
-        </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
