@@ -1,7 +1,7 @@
 import featureWallet from "@/assets/feature-wallet.png";
-import featureExchange from "@/assets/feature-exchange.png";
-import featureAutostack from "@/assets/feature-autostack.png";
-import featureBillpay from "@/assets/feature-billpay.png";
+import featureExchange from "@/assets/feature-exchange.jpg";
+import featureAutostack from "@/assets/feature-autostack.jpg";
+import featureBillpay from "@/assets/feature-billpay.jpg";
 
 const FeaturesSection = () => {
   const features = [
