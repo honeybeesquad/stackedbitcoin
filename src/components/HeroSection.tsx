@@ -8,8 +8,9 @@ const HeroSection = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center">
           {/* Main Headline */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-primary leading-none mb-8 md:mb-12 tracking-tight">
-            BITCOIN IS BETTER MONEY.
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-none mb-8 md:mb-12 tracking-tight">
+            <span className="text-primary">BITCOIN IS </span>
+            <span className="text-accent">BETTER MONEY.</span>
           </h1>
 
           {/* Video */}
