@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import logoWideSlate from "@/assets/logo-wide-slate.png";
+import logoWideDark from "@/assets/logo-wide-dark.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ const Header = () => {
           {/* Logo */}
           <a href="/" className="flex items-center">
             <img 
-              src={logoWideSlate} 
+              src={logoWideDark} 
               alt="Stacked" 
               className="h-8 md:h-10 w-auto"
             />

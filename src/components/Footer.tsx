@@ -1,4 +1,4 @@
-import logoWideSlate from "@/assets/logo-wide-slate.png";
+import logoWideDark from "@/assets/logo-wide-dark.png";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <a href="/" className="inline-block mb-4">
               <img 
-                src={logoWideSlate} 
+                src={logoWideDark} 
                 alt="Stacked" 
                 className="h-8 w-auto"
               />

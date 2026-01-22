@@ -11,7 +11,7 @@ const HeroSection = () => {
           <div className="max-w-xl text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 md:mb-6">
               Bitcoin is better money.{" "}
-              <span className="text-primary">Stack sats with Stacked.</span>
+              <span className="text-accent">Stack sats with Stacked.</span>
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8">
               New Zealand's most trusted Bitcoin-only platform. Buy, sell, and hold Bitcoin with the lowest fees and lightning-fast transactions.
