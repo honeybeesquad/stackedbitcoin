@@ -8,53 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Stacked Brand: #13252b (dark teal), #14afac (bright teal), white */
-    --background: 0 0% 100%;
-    --foreground: 191 38% 12%;
+    /* Stacked Brand Dark Theme: Dark slate bg, teal primary, #D9F3F1 accent */
+    --background: 191 38% 12%;
+    --foreground: 170 53% 91%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 191 38% 12%;
+    --card: 191 35% 15%;
+    --card-foreground: 170 53% 91%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 191 38% 12%;
+    --popover: 191 35% 15%;
+    --popover-foreground: 170 53% 91%;
 
     --primary: 179 79% 38%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 191 38% 12%;
 
-    --secondary: 191 20% 95%;
-    --secondary-foreground: 191 38% 12%;
+    --secondary: 191 30% 20%;
+    --secondary-foreground: 170 53% 91%;
 
-    --muted: 191 15% 95%;
-    --muted-foreground: 191 20% 40%;
+    --muted: 191 30% 20%;
+    --muted-foreground: 191 20% 65%;
 
-    --accent: 179 79% 38%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 170 53% 91%;
+    --accent-foreground: 191 38% 12%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 170 53% 91%;
 
-    --border: 191 15% 88%;
-    --input: 191 15% 88%;
+    --border: 191 25% 22%;
+    --input: 191 25% 22%;
     --ring: 179 79% 38%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 191 38% 12%;
+    --sidebar-background: 191 38% 10%;
+    --sidebar-foreground: 170 53% 91%;
     --sidebar-primary: 179 79% 38%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 191 20% 95%;
-    --sidebar-accent-foreground: 191 38% 12%;
-    --sidebar-border: 191 15% 88%;
+    --sidebar-primary-foreground: 191 38% 12%;
+    --sidebar-accent: 191 30% 20%;
+    --sidebar-accent-foreground: 170 53% 91%;
+    --sidebar-border: 191 25% 22%;
     --sidebar-ring: 179 79% 38%;
 
-    --chart-1: 179 79% 38%;
-    --chart-2: 191 60% 30%;
-    --chart-3: 160 60% 45%;
-    --chart-4: 200 65% 50%;
-    --chart-5: 220 55% 55%;
+    --chart-1: 179 79% 45%;
+    --chart-2: 191 60% 40%;
+    --chart-3: 160 60% 55%;
+    --chart-4: 200 65% 55%;
+    --chart-5: 220 55% 60%;
 
-    --sidebar: 0 0% 100%;
+    --sidebar: 191 38% 10%;
     
     --stacked-teal: 179 79% 38%;
     --stacked-dark: 191 38% 12%;
