@@ -55,7 +55,7 @@ const FeaturesSection = () => {
                   <img
                     src={feature.image}
                     alt={feature.title}
-                    className="relative z-10 w-48 sm:w-56 md:w-64 lg:w-72 rounded-3xl shadow-2xl"
+                    className="relative z-10 w-48 sm:w-56 md:w-64 lg:w-72 rounded-3xl shadow-2xl border border-border/30"
                   />
                 </div>
               </div>
