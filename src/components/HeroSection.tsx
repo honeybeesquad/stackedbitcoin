@@ -1,15 +1,25 @@
-import { Button } from "@/components/ui/button";
 import heroVideo from "@/assets/hero-video.mp4";
-import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const HeroSection = () => {
+  const words = ["MONEY", "SAVINGS", "SPENDING", "INVESTING", "FREEDOM", "PRIVACY", "FINANCE"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 2000); // Change word every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="pt-24 pb-12 md:pt-32 md:pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center">
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-primary leading-none mb-8 md:mb-12 tracking-tight">
-            BITCOIN IS BETTER MONEY.
+            BITCOIN IS BETTER <span style={{ color: '#D9F3F1' }}>{words[currentWordIndex]}</span>.
           </h1>
 
           {/* Video */}
