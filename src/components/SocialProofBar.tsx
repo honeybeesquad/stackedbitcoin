@@ -3,7 +3,7 @@ import { Zap, Shield, Smartphone, Building } from "lucide-react";
 const SocialProofBar = () => {
   const stats = [
     { value: "4.7/5", label: "Trustpilot Rating" },
-    { value: "30,000,000,000", label: "Sats Monthly Volume" },
+    { value: "30 Billion+", label: "Sats Monthly Volume" },
     { value: "1000s", label: "of Kiwi Customers" },
     { value: "2024", label: "Established" },
   ];
