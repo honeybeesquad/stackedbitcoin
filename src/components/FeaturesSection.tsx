@@ -46,18 +46,18 @@ const FeaturesSection = () => {
               key={index}
               className={`flex flex-col ${
                 index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } gap-8 lg:gap-16 items-center`}
+              } gap-6 lg:gap-10 items-center`}
             >
               {/* Image in iPhone Frame */}
               <div className="flex-1 flex justify-center">
                 <div className="relative">
                   <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full scale-75" />
-                  {/* iPhone Frame */}
-                  <div className="relative z-10 bg-foreground rounded-[3rem] p-2 shadow-2xl">
+                  {/* iPhone Frame - Black */}
+                  <div className="relative z-10 bg-black rounded-[3rem] p-2 shadow-2xl">
                     {/* Inner bezel */}
-                    <div className="bg-background rounded-[2.5rem] overflow-hidden relative">
+                    <div className="bg-black rounded-[2.5rem] overflow-hidden relative">
                       {/* Notch */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground rounded-b-2xl z-20" />
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-2xl z-20" />
                       {/* Screen content */}
                       <img
                         src={feature.image}
@@ -71,7 +71,7 @@ const FeaturesSection = () => {
 
               {/* Content */}
               <div className="flex-1 text-center lg:text-left">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-4">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4">
                   {feature.title}
                 </h3>
                 <p className="text-muted-foreground text-base md:text-lg max-w-md mx-auto lg:mx-0">
