@@ -21,14 +21,20 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            <a href="#features" className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors">
-              Features
+            <a href="#solutions" className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors">
+              Solutions
             </a>
-            <a href="#why" className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors">
-              Why Bitcoin
+            <a href="#help" className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors">
+              Help
             </a>
-            <a href="#reviews" className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors">
-              Reviews
+            <a href="#company" className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors">
+              Company
+            </a>
+            <a href="#wallet" className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors">
+              Wallet
+            </a>
+            <a href="#partners" className="text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors">
+              Partners
             </a>
           </div>
 
@@ -57,25 +63,39 @@ const Header = () => {
           <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border py-4 px-4 shadow-lg">
             <div className="flex flex-col gap-1">
               <a 
-                href="#features" 
+                href="#solutions" 
                 className="text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors py-3 px-2 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Features
+                Solutions
               </a>
               <a 
-                href="#why" 
+                href="#help" 
                 className="text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors py-3 px-2 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Why Bitcoin
+                Help
               </a>
               <a 
-                href="#reviews" 
+                href="#company" 
                 className="text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors py-3 px-2 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Reviews
+                Company
+              </a>
+              <a 
+                href="#wallet" 
+                className="text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors py-3 px-2 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Wallet
+              </a>
+              <a 
+                href="#partners" 
+                className="text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors py-3 px-2 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Partners
               </a>
               <div className="flex flex-col gap-2 pt-4 mt-2 border-t border-border">
                 <Button variant="ghost" className="w-full justify-center">Log in</Button>
