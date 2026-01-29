@@ -46,7 +46,7 @@ const FeaturesSection = () => {
               key={index}
               className={`flex flex-col ${
                 index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } gap-6 lg:gap-10 items-center`}
+              } gap-4 lg:gap-6 items-center`}
             >
               {/* Image in iPhone Frame */}
               <div className="flex-1 flex justify-center">
