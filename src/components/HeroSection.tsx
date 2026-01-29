@@ -19,7 +19,7 @@ const HeroSection = () => {
         <div className="flex flex-col items-center text-center">
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-primary leading-none mb-8 md:mb-12 tracking-tight">
-            BITCOIN IS BETTER <span style={{ color: '#D9F3F1' }}>{words[currentWordIndex]}</span>.
+            BITCOIN IS BETTER<br /><span style={{ color: '#D9F3F1' }}>{words[currentWordIndex]}</span>.
           </h1>
 
           {/* Video */}
