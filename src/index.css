@@ -1,3 +1,68 @@
+/* Gotham Font Face Declarations */
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-XLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Black.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Ultra.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,20 +74,20 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Stacked Brand Dark Theme: Dark slate bg, teal primary, #D9F3F1 accent */
-    --background: 191 38% 12%;
-    --foreground: 170 53% 91%;
+    --background: 193 39% 12%;
+    --foreground: 0 0% 98%;
 
     --card: 191 35% 15%;
-    --card-foreground: 170 53% 91%;
+    --card-foreground: 0 0% 98%;
 
     --popover: 191 35% 15%;
-    --popover-foreground: 170 53% 91%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 179 79% 38%;
     --primary-foreground: 191 38% 12%;
 
     --secondary: 191 30% 20%;
-    --secondary-foreground: 170 53% 91%;
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 191 30% 20%;
     --muted-foreground: 191 20% 65%;
@@ -31,7 +96,7 @@ All colors MUST be HSL.
     --accent-foreground: 191 38% 12%;
 
     --destructive: 0 62% 40%;
-    --destructive-foreground: 170 53% 91%;
+    --destructive-foreground: 0 0% 98%;
 
     --border: 191 25% 22%;
     --input: 191 25% 22%;
@@ -40,11 +105,11 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 191 38% 10%;
-    --sidebar-foreground: 170 53% 91%;
+    --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 179 79% 38%;
     --sidebar-primary-foreground: 191 38% 12%;
     --sidebar-accent: 191 30% 20%;
-    --sidebar-accent-foreground: 170 53% 91%;
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 191 25% 22%;
     --sidebar-ring: 179 79% 38%;
 
@@ -88,7 +153,7 @@ All colors MUST be HSL.
 
   .dark {
     /* Stacked Brand Dark Mode */
-    --background: 191 38% 12%;
+    --background: 193 39% 12%;
     --foreground: 0 0% 98%;
 
     --card: 191 35% 15%;

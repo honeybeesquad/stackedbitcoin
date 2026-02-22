@@ -91,6 +91,7 @@ export default {
   		},
   		fontFamily: {
   			sans: [
+  				'Gotham',
   				'ui-sans-serif',
   				'system-ui',
   				'sans-serif',

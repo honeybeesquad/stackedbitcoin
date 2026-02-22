@@ -34,7 +34,7 @@ const WhySection = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-primary mb-3 md:mb-4">
           Why Stacked?
         </h2>
-        <p className="text-center text-sm md:text-base text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto px-4">
+        <p className="text-center text-sm md:text-base text-foreground mb-8 md:mb-12 max-w-2xl mx-auto px-4">
           We're Bitcoin-only because we believe in focused simplicity. No altcoin noise, just the hardest money ever created.
         </p>
 
@@ -46,8 +46,8 @@ const WhySection = () => {
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
                   <feature.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg md:text-xl">{feature.title}</CardTitle>
-                <CardDescription className="text-sm md:text-base text-muted-foreground">
+                <CardTitle className="text-lg md:text-xl text-primary">{feature.title}</CardTitle>
+                <CardDescription className="text-sm md:text-base text-foreground">
                   {feature.description}
                 </CardDescription>
               </CardHeader>

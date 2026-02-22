@@ -1,0 +1,79 @@
+/* ==========================================================================
+   STACKED THEME - WEB FONT FALLBACKS
+   Professional web fonts that serve as fallbacks when Gotham is not available
+   ========================================================================== */
+
+/* Inter - Primary fallback for Gotham */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ==========================================================================
+   FONT STACK DEFINITIONS
+   ========================================================================== */
+
+/* Primary font stack - Gotham with Inter fallback */
+.font-gotham {
+  font-family: 'Gotham', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Alternative font stack for specific use cases */
+.font-inter {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-system {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   FONT WEIGHT MAPPINGS
+   Map font weights to Inter equivalents when Gotham is not available
+   ========================================================================== */
+
+.weight-thin {
+  font-weight: 100;
+}
+
+.weight-xlight {
+  font-weight: 200;
+}
+
+.weight-light {
+  font-weight: 300;
+}
+
+.weight-book {
+  font-weight: 400;
+}
+
+.weight-medium {
+  font-weight: 500;
+}
+
+.weight-bold {
+  font-weight: 700;
+}
+
+.weight-black {
+  font-weight: 800;
+}
+
+.weight-ultra {
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES FOR FONT TESTING
+   Use these classes to test different font combinations
+   ========================================================================== */
+
+.font-preview-gotham {
+  font-family: 'Gotham', 'Inter', sans-serif;
+}
+
+.font-preview-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-preview-system {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

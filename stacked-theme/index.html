@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stacked Theme Preview</title>
+  <link rel="icon" type="image/png" href="../public/favicon.png">
+
+  <style>
+    /* ============================================
+       STACKED SILVERSTRIPE THEME - PREVIEW
+       ============================================ */
+
+
+
+    /* Page sections - only show active */
+    .page-section {
+      display: none;
+    }
+    .page-section.active {
+      display: block;
+    }
+
+    /* ============================================
+       CSS VARIABLES
+       ============================================ */
+    :root {
+      /* Brand Colors from Stacked UX Brand Guidelines */
+      --color-primary: #14afac;           /* Stacked Teal */
+      --color-primary-hover: #14afac;     /* Teal darkened for hover */
+      --color-background: #161718;        /* Stacked Slate */
+      --color-background-light: #222323;  /* Light Slate */
+      --color-foreground: #d9f3f1;
+      --color-accent: #d9f3f1;            /* Stacked Teal light mode */
+      --color-gold: #d6985b;              /* Stacked Gold (highlight) */
+      --color-muted: #d9f3f1;
+      --color-border: #222323;
+      --font-family: 'Gotham', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --container-max: 1200px;
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    /* ============================================
+       BASE STYLES
+       ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-background);
+      color: var(--color-foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--color-primary-hover);
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 3vw, 2rem);
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-foreground);
+    }
+
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    h2 { font-size: 2rem; margin-bottom: 0.875rem; }
+    h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    h4 { font-size: 1.25rem; margin-bottom: 0.625rem; }
+
+    p {
+      margin-bottom: 1rem;
+      color: #d9f3f1;
+    }
+
+    /* ============================================
+       HEADER
+       ============================================ */
+    .site-header {
+      position: sticky;
+      top: 60px;
+      background: #222323;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .site-logo img {
+      height: 72px;
+      width: auto;
+    }
+
+    .site-logo-mobile {
+      display: none;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .main-nav a {
+      color: #d9f3f1;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--color-primary);
+    }
+
+    .header-cta {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    .mobile-menu-btn svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(22, 23, 24, 0.8);
+      z-index: 1001;
+    }
+
+    .mobile-menu-drawer {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(86vw, 360px);
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--color-background);
+      border-left: 1px solid var(--color-border);
+      z-index: 1002;
+      padding: 5.5rem 1.25rem 1.5rem;
+    }
+
+    .mobile-menu-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-menu-label {
+      color: var(--color-primary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.25rem;
+    }
+
+    .mobile-menu-link {
+      display: block;
+      color: var(--color-accent);
+      padding: 0.5rem 0.25rem;
+      font-size: 0.9375rem;
+    }
+
+    .mobile-menu-link:hover {
+      color: var(--color-primary);
+    }
+
+    body.mobile-menu-open {
+      overflow: hidden;
+    }
+
+    body.mobile-menu-open .mobile-menu-overlay,
+    body.mobile-menu-open .mobile-menu-drawer {
+      display: block;
+    }
+
+    /* ============================================
+       BUTTONS
+       ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-background);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      color: var(--color-background);
+    }
+
+    .btn-secondary {
+      background: var(--color-background-light);
+      color: var(--color-foreground);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-border);
+      color: var(--color-foreground);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-accent);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--color-background-light);
+      color: var(--color-foreground);
+    }
+
+    /* ============================================
+       BREADCRUMBS
+       ============================================ */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      padding: 1.5rem 0;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-muted);
+      line-height: 1.35;
+    }
+
+    .breadcrumbs a {
+      color: var(--color-accent);
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--color-primary);
+    }
+
+    .breadcrumbs .separator {
+      color: var(--color-muted);
+      opacity: 0.55;
+      margin: 0 0.25rem;
+    }
+
+    .breadcrumbs .current {
+      color: var(--color-muted);
+    }
+
+    /* ============================================
+       PAGE HEADER
+       ============================================ */
+    .page-header {
+      text-align: center;
+      padding: 3rem 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .page-intro {
+      font-size: 1.125rem;
+      color: #d9f3f1;
+    }
+
+    /* ============================================
+       ARTICLE STYLES
+       ============================================ */
+    .article-page,
+    .news-article-page,
+    .help-article-page {
+      padding: 2rem 0 4rem;
+    }
+
+    .article-header,
+    .news-article-header,
+    .help-article-header {
+      margin-bottom: 2rem;
+    }
+
+    .article-title,
+    .news-article-title,
+    .help-article-title {
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .article-summary {
+      font-size: 1.25rem;
+      color: #d9f3f1;
+      margin-bottom: 1rem;
+    }
+
+    .article-date,
+    .news-article-date,
+    .help-article-updated {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+
+    .article-featured-image,
+    .news-article-featured {
+      margin: 2rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .article-featured-image img,
+    .news-article-featured img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .article-content,
+    .news-article-content,
+    .help-article-content {
+      max-width: 800px;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      padding: 2.5rem; /* 40px for readability */
+    }
+
+    .article-content h2,
+    .news-article-content h2,
+    .help-article-content h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 0.5rem;
+      color: var(--color-primary);
+    }
+
+    .article-content h3,
+    .news-article-content h3,
+    .help-article-content h3 {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-primary);
+      padding-bottom: 0.25rem;
+      color: var(--color-primary);
+    }
+
+    .article-content ul,
+    .article-content ol,
+    .news-article-content ul,
+    .news-article-content ol,
+    .help-article-content ul,
+    .help-article-content ol {
+      margin: 1rem 0 1rem 1.5rem;
+      color: #d9f3f1;
+    }
+
+    .article-content li,
+    .news-article-content li,
+    .help-article-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .article-content blockquote,
+    .news-article-content blockquote,
+    .help-article-content blockquote {
+      border-left: 4px solid var(--color-primary);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #d9f3f1;
+    }
+
+    .article-content code,
+    .news-article-content code,
+    .help-article-content code {
+      background: var(--color-background-light);
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .article-content pre,
+    .news-article-content pre,
+    .help-article-content pre {
+      background: var(--color-background-light);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    .article-navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* ============================================
+       NEWS LISTING
+       ============================================ */
+    .news-listing-page {
+      padding: 2rem 0 4rem;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .news-card {
+      background: var(--color-background-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .news-card-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .news-card-image {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--color-border);
+    }
+
+    .news-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .news-card:hover .news-card-image img {
+      transform: scale(1.05);
+    }
+
+    .news-card-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+    }
+
+    .news-card-content {
+      padding: 1.5rem;
+    }
+
+    .news-card-date {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .news-card-title {
+      font-size: 1.25rem;
+      color: var(--color-foreground);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .news-card-summary {
+      font-size: 0.9375rem;
+      color: #d9f3f1;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .news-card-cta {
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    /* ============================================
+       NEWS ARTICLE
+       ============================================ */
+    .news-article-author {
+      font-size: 0.9375rem;
+      color: var(--color-muted);
+      margin-top: 0.5rem;
+    }
+
+    .news-article-tags {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .tags-label {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+
+    .tag {
+      background: var(--color-background-light);
+      color: var(--color-accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      transition: background 0.2s ease;
+    }
+
+    .tag:hover {
+      background: var(--color-border);
+      color: var(--color-foreground);
+    }
+
+    .news-article-share {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding: 1rem 0;
+    }
+
+    .share-label {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .share-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-background-light);
+      color: var(--color-accent);
+      transition: all 0.2s ease;
+    }
+
+    .share-btn:hover {
+      background: var(--color-primary);
+      color: var(--color-background);
+    }
+
+    .news-article-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .news-article-nav .nav-prev,
+    .news-article-nav .nav-next {
+      padding: 1rem;
+      background: var(--color-background-light);
+      border-radius: var(--radius);
+      transition: background 0.2s ease;
+    }
+
+    .news-article-nav .nav-prev:hover,
+    .news-article-nav .nav-next:hover {
+      background: var(--color-border);
+    }
+
+    .news-article-nav .nav-next {
+      text-align: right;
+    }
+
+    .news-article-nav .nav-label {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .news-article-nav .nav-title {
+      display: block;
+      color: var(--color-foreground);
+      font-weight: 500;
+    }
+
+    /* ============================================
+       HELP SECTION
+       ============================================ */
+    .help-section-page {
+      padding: 2rem 0 4rem;
+    }
+
+    /* Instagram-style Help Layout with Sidebar */
+    .help-layout-with-sidebar {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .help-main-content {
+      min-width: 0;
+    }
+
+    .help-header-inline {
+      margin-bottom: 2rem;
+    }
+
+    .help-header {
+      padding-bottom: 2rem;
+    }
+
+    .help-search {
+      margin-top: 2rem;
+    }
+
+    .help-search-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .help-search-form .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-muted);
+      pointer-events: none;
+    }
+
+    .help-search-input {
+      flex: 1;
+      padding: 0.875rem 1rem 0.875rem 3rem;
+      font-size: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: var(--color-background-light);
+      color: var(--color-foreground);
+    }
+
+    .help-search-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+
+    .help-search-input::placeholder {
+      color: var(--color-muted);
+    }
+
+    .help-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .help-category-card {
+      display: block;
+      padding: 2rem;
+      background: var(--color-background-light);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .help-category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .category-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-primary);
+      color: var(--color-background);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+    }
+
+    .category-title {
+      font-size: 1.25rem;
+      color: var(--color-foreground);
+      margin-bottom: 0.5rem;
+    }
+
+    .category-description {
+      font-size: 0.9375rem;
+      color: #d9f3f1;
+      margin-bottom: 0.75rem;
+    }
+
+    .category-count {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+    }
+
+    .help-popular {
+      margin-top: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .popular-articles-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .popular-article-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--color-background-light);
+      border-radius: var(--radius);
+      color: #d9f3f1;
+      transition: all 0.2s ease;
+    }
+
+    .popular-article-link:hover {
+      background: var(--color-border);
+      color: var(--color-foreground);
+    }
+
+    .popular-article-link svg {
+      flex-shrink: 0;
+      color: var(--color-muted);
+    }
+
+    /* FAQ Accordion */
+    .help-faq {
+      margin-top: 3rem;
+    }
+
+    .faq-accordion {
+      max-width: 800px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      font-size: 1.0625rem;
+      font-weight: 500;
+      color: var(--color-foreground);
+      list-style: none;
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-question:hover {
+      color: var(--color-primary);
+    }
+
+    .faq-chevron {
+      transition: transform 0.2s ease;
+      color: var(--color-muted);
+    }
+
+    .faq-item[open] .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding-bottom: 1.25rem;
+      color: #d9f3f1;
+      line-height: 1.7;
+    }
+
+    /* Help Contact */
+    .help-contact {
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .contact-card {
+      display: inline-block;
+      padding: 2.5rem 3rem;
+      background: var(--color-background-light);
+      border-radius: var(--radius-lg);
+      max-width: 400px;
+    }
+
+    .contact-icon {
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Popular Articles Grid (GifGaf-style) */
+    .popular-help-articles {
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .popular-help-articles h3 {
+      color: #d9f3f1;
+      margin-bottom: 0.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .popular-articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      max-width: 680px;
+    }
+
+    .popular-article-card {
+      display: block;
+      padding: 0.625rem 0;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--color-border);
+      border-radius: 0;
+      text-decoration: none;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .popular-article-card:hover {
+      color: var(--color-primary);
+      opacity: 0.95;
+    }
+
+    .popular-article-card:hover .popular-article-content h4 {
+      color: #d9f3f1;
+    }
+    .popular-article-content h4 {
+      color: #d9f3f1;
+      margin: 0;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .popular-article-content p {
+      display: none;
+    }
+
+    /* Enhanced Help Contact Section (GifGaf-style) */
+    .help-contact-section {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 2px solid var(--color-border);
+    }
+
+    .help-contact-card {
+      background: linear-gradient(135deg, var(--color-background-light) 0%, var(--color-background) 100%);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .help-contact-header {
+      margin-bottom: 2rem;
+    }
+
+    .help-contact-header .contact-icon {
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .help-contact-header h3 {
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .help-contact-header p {
+      color: #d9f3f1;
+      font-size: 1.125rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .help-contact-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .contact-option:hover {
+      border-color: var(--color-primary);
+      background: var(--color-background-light);
+      transform: translateY(-2px);
+    }
+
+    .contact-option .option-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-primary);
+      color: var(--color-background);
+      border-radius: 50%;
+    }
+
+    .contact-option .option-content h4 {
+      color: #d9f3f1;
+      margin: 0 0 0.25rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .contact-option .option-content p {
+      color: var(--color-muted);
+      margin: 0;
+      font-size: 0.875rem;
+    }
+
+    /* ============================================
+       HELP ARTICLE
+       ============================================ */
+    .help-article-layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 3rem;
+      margin-top: 1rem;
+    }
+
+    .help-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sidebar-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .sidebar-title {
+      font-size: 0.875rem;
+      font-family: 'Gotham-Bold', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 700 !important;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sidebar-link {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      color: #d9f3f1;
+      border-radius: var(--radius);
+      font-size: 0.9375rem;
+      transition: all 0.2s ease;
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-link:hover {
+      background-color: var(--color-background-light);
+      color: #d9f3f1;
+    }
+
+    .sidebar-link.is-active {
+      background-color: var(--color-primary);
+      color: var(--color-background);
+      font-weight: 600;
+    }
+
+    .article-feedback {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: var(--color-background-light);
+      border-radius: var(--radius);
+    }
+
+    .feedback-question {
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .feedback-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .feedback-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: transparent;
+      color: #d9f3f1;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .feedback-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .related-help-articles {
+      margin-top: 2rem;
+    }
+
+    .related-list {
+      list-style: none;
+    }
+
+    .related-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .related-list a {
+      color: #d9f3f1;
+    }
+
+    .related-list a:hover {
+      color: var(--color-primary);
+    }
+
+    .help-article-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .help-article-nav a {
+      display: block;
+      padding: 0.875rem 1rem;
+      background: var(--color-background-light);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s ease;
+    }
+
+    .help-article-nav a:hover {
+      border-color: var(--color-primary);
+    }
+
+    .help-article-nav .nav-next {
+      text-align: right;
+    }
+
+    .help-article-nav .nav-direction {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .help-article-nav .nav-next .nav-direction {
+      justify-content: flex-end;
+    }
+
+    .help-article-nav .nav-title {
+      display: block;
+      color: var(--color-foreground);
+      font-size: 0.9375rem;
+      line-height: 1.35;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       PAGINATION
+       ============================================ */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .pagination-prev,
+    .pagination-next {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      color: #d9f3f1;
+      border-radius: var(--radius);
+      transition: all 0.2s ease;
+    }
+
+    .pagination-prev:hover,
+    .pagination-next:hover {
+      background: var(--color-background-light);
+      color: var(--color-foreground);
+    }
+
+    .pagination-numbers {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .pagination-link,
+    .pagination-current {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      font-size: 0.9375rem;
+    }
+
+    .pagination-link {
+      color: #d9f3f1;
+      transition: all 0.2s ease;
+    }
+
+    .pagination-link:hover {
+      background: var(--color-background-light);
+      color: var(--color-foreground);
+    }
+
+    .pagination-current {
+      background: var(--color-primary);
+      color: var(--color-background);
+      font-weight: 600;
+    }
+
+    .pagination-ellipsis {
+      color: var(--color-muted);
+      padding: 0 0.5rem;
+    }
+
+    /* ============================================
+       EMPTY STATE
+       ============================================ */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--color-muted);
+    }
+
+    .empty-state svg {
+      margin-bottom: 1.5rem;
+      opacity: 0.5;
+    }
+
+    .empty-state h3 {
+      color: var(--color-foreground);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .site-footer {
+      background: var(--color-background-light);
+      padding: 4rem 0 2rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .footer-column-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-foreground);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--color-accent);
+      font-size: 0.9375rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+      .help-layout-with-sidebar,
+      .help-article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .help-sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1, .page-title { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+
+      .main-nav,
+      .header-cta {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--color-foreground);
+        cursor: pointer;
+        padding: 0.75rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .news-article-nav,
+      .help-article-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .site-logo-desktop {
+        display: none;
+      }
+
+      .site-logo-mobile {
+        display: block;
+        height: 44px;
+        width: auto;
+      }
+
+      .help-article-nav .nav-next {
+        text-align: left;
+      }
+
+      .help-article-nav .nav-next .nav-direction {
+        justify-content: flex-start;
+      }
+
+      .breadcrumbs {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .help-categories {
+        grid-template-columns: 1fr;
+      }
+
+      .help-search-form {
+        flex-direction: column;
+      }
+
+      .help-search-form .search-icon {
+        top: 24px;
+      }
+    }
+  </style>
+
+  <!-- Gotham Font Enforcement -->
+  <style>
+    /* Gotham Font Loading */
+    @font-face {
+      font-family: 'Gotham-Bold';
+      src: url('./fonts/Gotham-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Gotham-Book';
+      src: url('./fonts/Gotham-Book.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Font Enforcement Rules */
+    h1 {
+      font-family: 'Gotham-Bold', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 700 !important;
+    }
+
+    h2, h3, h4, h5, h6 {
+      font-family: 'Gotham-Book', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    body, p, span, div, li, td, th {
+      font-family: 'Gotham-Book', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    .btn, button {
+      font-family: 'Gotham-Book', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    a {
+      font-family: 'Gotham-Book', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    .main-nav a, .sidebar-link, .footer-links a {
+      font-family: 'Gotham-Book', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    .card-title, .news-card-title, .article-title, .help-article-title {
+      font-family: 'Gotham-Book', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    input, textarea, select {
+      font-family: 'Gotham-Book', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-weight: 400 !important;
+    }
+  </style>
+
+  <script>
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page-section').forEach(el => {
+        el.classList.remove('active');
+      });
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+      // Update nav active state
+      document.querySelectorAll('.preview-nav a').forEach(el => {
+        el.style.background = '#161718';
+        el.style.color = '#d9f3f1';
+      });
+      const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+      if (activeLink) {
+        activeLink.style.background = '#14afac';
+        activeLink.style.color = '#161718';
+      }
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    function setMobileMenuOpen(open) {
+      const body = document.body;
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const button = document.querySelector('[data-mobile-menu-toggle]');
+      if (!body || !drawer || !button) return;
+      body.classList.toggle('mobile-menu-open', open);
+      button.setAttribute('aria-expanded', open ? 'true' : 'false');
+      drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const button = document.querySelector('[data-mobile-menu-toggle]');
+      const overlay = document.querySelector('[data-mobile-menu-overlay]');
+      const drawer = document.getElementById('mobile-menu-drawer');
+
+      if (!button || !overlay || !drawer) return;
+
+      button.addEventListener('click', function () {
+        const open = document.body.classList.contains('mobile-menu-open');
+        setMobileMenuOpen(!open);
+      });
+
+      overlay.addEventListener('click', function () {
+        setMobileMenuOpen(false);
+      });
+
+      drawer.addEventListener('click', function (event) {
+        const link = event.target.closest('a');
+        if (link) setMobileMenuOpen(false);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') setMobileMenuOpen(false);
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Preview Navigation -->
+  <nav class="preview-nav" style="position: fixed; top: 0; left: 0; right: 0; background: #161718; padding: 8px 20px; z-index: 9999; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; border-bottom: 2px solid #14afac;">
+    <span style="color: #14afac; font-weight: bold; margin-right: 16px; font-size: 14px;">PREVIEW:</span>
+    <a href="#" data-page="home" class="active" onclick="showPage('home'); return false;" style="color: #d9f3f1; text-decoration: none; padding: 6px 12px; border-radius: 4px; font-size: 13px; background: #14afac; color: #161718;">Home</a>
+    <a href="#" data-page="article" onclick="showPage('article'); return false;" style="color: #d9f3f1; text-decoration: none; padding: 6px 12px; border-radius: 4px; font-size: 13px; background: #161718;">Article</a>
+    <a href="#" data-page="news-listing" onclick="showPage('news-listing'); return false;" style="color: #d9f3f1; text-decoration: none; padding: 6px 12px; border-radius: 4px; font-size: 13px; background: #161718;">News Listing</a>
+    <a href="#" data-page="news-article" onclick="showPage('news-article'); return false;" style="color: #d9f3f1; text-decoration: none; padding: 6px 12px; border-radius: 4px; font-size: 13px; background: #161718;">News Article</a>
+    <a href="#" data-page="help-section" onclick="showPage('help-section'); return false;" style="color: #d9f3f1; text-decoration: none; padding: 6px 12px; border-radius: 4px; font-size: 13px; background: #161718;">Help Center</a>
+    <a href="#" data-page="help-article" onclick="showPage('help-article'); return false;" style="color: #d9f3f1; text-decoration: none; padding: 6px 12px; border-radius: 4px; font-size: 13px; background: #161718;">Help Article</a>
+  </nav>
+  <div style="height: 50px;"></div>
+
+  <!-- HEADER (shared across all pages) -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="site-logo" onclick="showPage('home'); return false;">
+          <img src="../src/assets/Stacked Logos PNG/Stacked Logo Wide Teal.png" alt="Stacked" class="site-logo-desktop">
+          <img src="../src/assets/Stacked Logos PNG/Stacked Button Teal.png" alt="Stacked" class="site-logo-mobile">
+        </a>
+
+        <nav class="main-nav">
+          <a href="#">Solutions</a>
+          <a href="#" onclick="showPage('help-section'); return false;">Help</a>
+          <a href="#">Company</a>
+          <a href="#">Wallet</a>
+          <a href="#">Partners</a>
+        </nav>
+
+        <div class="header-cta">
+          <a href="#" class="btn btn-ghost">Log in</a>
+          <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-controls="mobile-menu-drawer" aria-expanded="false" data-mobile-menu-toggle>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" data-mobile-menu-overlay></div>
+  <nav class="mobile-menu-drawer" id="mobile-menu-drawer" aria-hidden="true">
+    <div class="mobile-menu-section">
+      <a href="#" onclick="showPage('home'); return false;" class="mobile-menu-link">Solutions</a>
+      <a href="#" onclick="showPage('help-section'); return false;" class="mobile-menu-link">Help</a>
+      <a href="#" class="mobile-menu-link">Company</a>
+      <a href="#" class="mobile-menu-link">Wallet</a>
+      <a href="#" class="mobile-menu-link">Partners</a>
+    </div>
+
+    <div class="mobile-menu-section">
+      <h4 class="mobile-menu-label">Learn</h4>
+      <a href="#" class="mobile-menu-link">About Stacked</a>
+      <a href="#" class="mobile-menu-link">Bitcoin for Beginners</a>
+      <a href="#" class="mobile-menu-link">Lightning Network Education</a>
+      <a href="#" class="mobile-menu-link">Saving in Bitcoin</a>
+      <a href="#" class="mobile-menu-link">How to use Bitcoin</a>
+      <a href="#" class="mobile-menu-link">Bitcoin and NZ Law</a>
+    </div>
+
+    <div class="mobile-menu-section">
+      <h4 class="mobile-menu-label">Support</h4>
+      <a href="#" onclick="showPage('help-article'); return false;" class="mobile-menu-link">Getting Started</a>
+      <a href="#" onclick="showPage('help-article'); return false;" class="mobile-menu-link">How to verify my identity</a>
+      <a href="#" class="mobile-menu-link">Stacked Products</a>
+      <a href="#" class="mobile-menu-link">The Stacked Wallet</a>
+      <a href="#" class="mobile-menu-link">Merchant Services</a>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       PAGE: HOME (Layout Demo)
+       ============================================ -->
+  <div id="home" class="page-section active">
+    <main>
+      <section style="padding: 4rem 0; text-align: center;">
+        <div class="container">
+          <h1 style="color: var(--color-primary); font-size: 3rem; margin-bottom: 1rem;">Welcome to Stacked</h1>
+          <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto 2rem;">
+            New Zealand's most trusted Bitcoin-only platform. Buy, sell, and hold Bitcoin with the lowest fees.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="#" class="btn btn-primary">Get Started</a>
+            <a href="#" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 4rem 0; background: var(--color-background-light);">
+        <div class="container">
+          <h2 style="text-align: center; margin-bottom: 2rem;">This is the Layout Template</h2>
+          <p style="text-align: center; max-width: 700px; margin: 0 auto;">
+            The layout.html template provides the header and footer structure. Content pages slot into the main area. Use the navigation above to preview different page types.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ============================================
+       PAGE: ARTICLE
+       ============================================ -->
+  <div id="article" class="page-section">
+    <article class="article-page">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <span class="separator">/</span>
+          <a href="#">Company</a>
+          <span class="separator">/</span>
+          <span class="current">About Us</span>
+        </nav>
+
+        <header class="article-header">
+          <h1 class="article-title">About Stacked</h1>
+          <p class="article-summary">Building New Zealand's most trusted Bitcoin platform, one sat at a time.</p>
+          <time class="article-date">Last updated: 15 January 2026</time>
+        </header>
+
+        <div class="article-featured-image">
+          <div style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-background-light) 100%); height: 400px; display: flex; align-items: center; justify-content: center; color: var(--color-background); font-size: 1.5rem;">
+            Featured Image Placeholder
+          </div>
+        </div>
+
+        <div class="article-content">
+          <p>Stacked was founded with a simple mission: make Bitcoin accessible to every New Zealander. We believe Bitcoin represents the future of money, and everyone deserves easy, secure access to it.</p>
+
+          <h2>Our Story</h2>
+          <p>What started as a small team of Bitcoin enthusiasts has grown into New Zealand's leading Bitcoin-only exchange. We've processed millions of dollars in transactions and helped thousands of Kiwis start their Bitcoin journey.</p>
+
+          <h3>Why Bitcoin Only?</h3>
+          <p>We focus exclusively on Bitcoin because we believe it's the most important monetary innovation of our time. By specializing, we can offer:</p>
+          <ul>
+            <li>Lower fees than multi-coin exchanges</li>
+            <li>Deeper liquidity for better prices</li>
+            <li>Expert knowledge and support</li>
+            <li>Lightning Network integration for instant payments</li>
+          </ul>
+
+          <blockquote>
+            "Bitcoin is not just an investment. It's a fundamental shift in how we think about money, savings, and financial freedom."
+          </blockquote>
+
+          <h2>Our Values</h2>
+          <p>Everything we do is guided by our core values: security first, transparency always, and customer obsession. We're building for the long term, just like Bitcoin itself.</p>
+        </div>
+
+        <div class="article-navigation">
+          <a href="#" class="btn btn-secondary" onclick="showPage('home'); return false;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Company
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ============================================
+       PAGE: NEWS LISTING
+       ============================================ -->
+  <div id="news-listing" class="page-section">
+    <section class="news-listing-page">
+      <div class="container">
+        <header class="page-header">
+          <h1 class="page-title">News</h1>
+          <div class="page-intro">
+            <p>The latest updates, announcements, and insights from the Stacked team.</p>
+          </div>
+        </header>
+
+        <div class="news-grid">
+          <article class="news-card">
+            <a href="#" class="news-card-link" onclick="showPage('news-article'); return false;">
+              <div class="news-card-image">
+                <div style="background: linear-gradient(135deg, #14afac 0%, #161718 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #161718;">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="news-card-content">
+                <time class="news-card-date">28 January 2026</time>
+                <h2 class="news-card-title">Lightning Network Now Live on Stacked</h2>
+                <p class="news-card-summary">Send and receive Bitcoin instantly with near-zero fees using the Lightning Network.</p>
+                <span class="news-card-cta">Read more →</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="news-card">
+            <a href="#" class="news-card-link" onclick="showPage('news-article'); return false;">
+              <div class="news-card-image news-card-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="M21 15l-5-5L5 21"/>
+                </svg>
+              </div>
+              <div class="news-card-content">
+                <time class="news-card-date">15 January 2026</time>
+                <h2 class="news-card-title">New Mobile App Features Released</h2>
+                <p class="news-card-summary">Check out the latest updates to the Stacked mobile app, including biometric login and price alerts.</p>
+                <span class="news-card-cta">Read more →</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="news-card">
+            <a href="#" class="news-card-link" onclick="showPage('news-article'); return false;">
+              <div class="news-card-image news-card-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="M21 15l-5-5L5 21"/>
+                </svg>
+              </div>
+              <div class="news-card-content">
+                <time class="news-card-date">2 January 2026</time>
+                <h2 class="news-card-title">2025 Year in Review</h2>
+                <p class="news-card-summary">A look back at an incredible year for Stacked and the New Zealand Bitcoin community.</p>
+                <span class="news-card-cta">Read more →</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="news-card">
+            <a href="#" class="news-card-link" onclick="showPage('news-article'); return false;">
+              <div class="news-card-image news-card-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="M21 15l-5-5L5 21"/>
+                </svg>
+              </div>
+              <div class="news-card-content">
+                <time class="news-card-date">18 December 2025</time>
+                <h2 class="news-card-title">Holiday Trading Hours</h2>
+                <p class="news-card-summary">Important information about our support hours during the holiday period.</p>
+                <span class="news-card-cta">Read more →</span>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <nav class="pagination" aria-label="News pagination">
+          <span class="pagination-prev" style="opacity: 0.5;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+            Previous
+          </span>
+
+          <div class="pagination-numbers">
+            <span class="pagination-current">1</span>
+            <a href="#" class="pagination-link">2</a>
+            <a href="#" class="pagination-link">3</a>
+            <span class="pagination-ellipsis">…</span>
+            <a href="#" class="pagination-link">8</a>
+          </div>
+
+          <a href="#" class="pagination-next">
+            Next
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================
+       PAGE: NEWS ARTICLE
+       ============================================ -->
+  <div id="news-article" class="page-section">
+    <article class="news-article-page">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <span class="separator">/</span>
+          <a href="#" onclick="showPage('news-listing'); return false;">News</a>
+          <span class="separator">/</span>
+          <span class="current">Lightning Network Now Live</span>
+        </nav>
+
+        <header class="news-article-header">
+          <time class="news-article-date">28 January 2026</time>
+          <h1 class="news-article-title">Lightning Network Now Live on Stacked</h1>
+          <p class="news-article-author">By the Stacked Team</p>
+        </header>
+
+        <figure class="news-article-featured">
+          <div style="background: linear-gradient(135deg, #14afac 0%, #161718 100%); height: 400px; display: flex; align-items: center; justify-content: center;">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#161718" stroke-width="1.5">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+        </figure>
+
+        <div class="news-article-content">
+          <p>We're thrilled to announce that the Lightning Network is now fully integrated into the Stacked platform. This is a major milestone in our mission to make Bitcoin the most practical money for everyday use.</p>
+
+          <h2>What is the Lightning Network?</h2>
+          <p>The Lightning Network is a "layer 2" payment protocol built on top of Bitcoin. It enables instant, low-cost transactions by creating payment channels between users. Think of it as the difference between settling every transaction through your bank versus running a tab at your local cafe.</p>
+
+          <h2>Benefits for Stacked Users</h2>
+          <ul>
+            <li><strong>Instant transactions:</strong> No more waiting for block confirmations</li>
+            <li><strong>Near-zero fees:</strong> Send any amount for a fraction of a cent</li>
+            <li><strong>Better privacy:</strong> Lightning transactions don't appear on the main blockchain</li>
+            <li><strong>Micropayments:</strong> Send tiny amounts that would be impractical on-chain</li>
+          </ul>
+
+          <h2>How to Get Started</h2>
+          <p>Getting started with Lightning on Stacked is simple:</p>
+          <ol>
+            <li>Update your Stacked app to the latest version</li>
+            <li>Navigate to the "Receive" screen</li>
+            <li>Select "Lightning" to generate a Lightning invoice</li>
+            <li>Share the invoice or QR code with the sender</li>
+          </ol>
+
+          <blockquote>
+            "Lightning Network integration brings us one step closer to making Bitcoin practical for everyday transactions. We're excited to see how our users will use this technology."
+          </blockquote>
+
+          <p>We'll be rolling out additional Lightning features over the coming weeks, including the ability to pay Lightning invoices directly from your Stacked wallet. Stay tuned!</p>
+        </div>
+
+        <div class="news-article-tags">
+          <span class="tags-label">Tags:</span>
+          <a href="#" class="tag">Lightning Network</a>
+          <a href="#" class="tag">Product Update</a>
+          <a href="#" class="tag">Bitcoin</a>
+        </div>
+
+        <div class="news-article-share">
+          <span class="share-label">Share this article:</span>
+          <div class="share-buttons">
+            <a href="#" class="share-btn share-twitter" aria-label="Share on Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="#" class="share-btn share-linkedin" aria-label="Share on LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="#" class="share-btn share-email" aria-label="Share via Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 6l-10 7L2 6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <nav class="news-article-nav">
+          <a href="#" class="nav-prev">
+            <span class="nav-label">← Previous</span>
+            <span class="nav-title">New Mobile App Features Released</span>
+          </a>
+          <a href="#" class="nav-next">
+            <span class="nav-label">Next →</span>
+            <span class="nav-title">2025 Year in Review</span>
+          </a>
+        </nav>
+
+        <div class="article-navigation">
+          <a href="#" class="btn btn-secondary" onclick="showPage('news-listing'); return false;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to News
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ============================================
+       PAGE: HELP SECTION
+       ============================================ -->
+  <div id="help-section" class="page-section">
+    <section class="help-section-page">
+      <div class="container">
+        <!-- Help Center with Sidebar Layout (Instagram-style) -->
+        <div class="help-layout-with-sidebar">
+
+          <!-- Left Sidebar Navigation -->
+          <aside class="help-sidebar">
+            <nav class="sidebar-nav">
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Learn</h3>
+                <a href="#" class="sidebar-link">About Stacked</a>
+                <a href="#" class="sidebar-link">Bitcoin for Beginners</a>
+                <a href="#" class="sidebar-link">Lightning Network Education</a>
+                <a href="#" class="sidebar-link">Saving in Bitcoin</a>
+                <a href="#" class="sidebar-link">How to use Bitcoin</a>
+                <a href="#" class="sidebar-link">Bitcoin and NZ Law</a>
+              </div>
+
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Support</h3>
+                <a href="#" class="sidebar-link" onclick="showPage('help-article'); return false;">Getting Started</a>
+                <a href="#" class="sidebar-link" onclick="showPage('help-article'); return false;">Account & Security</a>
+                <a href="#" class="sidebar-link" onclick="showPage('help-article'); return false;">Buying & Selling</a>
+                <a href="#" class="sidebar-link" onclick="showPage('help-article'); return false;">Lightning Network</a>
+                <a href="#" class="sidebar-link" onclick="showPage('help-article'); return false;">Stacked Products</a>
+                <a href="#" class="sidebar-link" onclick="showPage('help-article'); return false;">The Stacked Wallet</a>
+                <a href="#" class="sidebar-link" onclick="showPage('help-article'); return false;">Merchant Services</a>
+              </div>
+
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Policies</h3>
+                <a href="#" class="sidebar-link">Terms of Service</a>
+                <a href="#" class="sidebar-link">Privacy Policy</a>
+                <a href="#" class="sidebar-link">AML/KYC Policy</a>
+              </div>
+            </nav>
+          </aside>
+
+          <!-- Main Content Area -->
+          <div class="help-main-content">
+            <header class="help-header-inline">
+              <h1 class="page-title" style="text-align: left; margin-bottom: 0.5rem;">Help Center</h1>
+              <p style="color: #d9f3f1; margin-bottom: 1.5rem;">Find answers to common questions, guides, and resources.</p>
+
+              <div class="help-search" style="margin-top: 0;">
+                <form class="help-search-form" onsubmit="return false;" style="margin: 0; max-width: 100%;">
+                  <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                  </svg>
+                  <input type="search" placeholder="Search help articles..." class="help-search-input">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+              </div>
+            </header>
+
+            <!-- Popular Articles (GiffGaff style) -->
+            <div class="help-popular" style="margin-top: 2rem;">
+              <h2 class="section-title">Popular Articles</h2>
+              <div class="popular-articles-grid">
+                <a href="#" class="popular-article-card" onclick="showPage('help-article'); return false;"><div class="popular-article-content">
+                    <h4>How to verify my identity</h4>
+                    <p>Step-by-step guide to completing identity verification</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card" onclick="showPage('help-article'); return false;"><div class="popular-article-content">
+                    <h4>What is the Lightning Network?</h4>
+                    <p>Learn about instant Bitcoin payments</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card" onclick="showPage('help-article'); return false;"><div class="popular-article-content">
+                    <h4>Understanding Bitcoin transaction fees</h4>
+                    <p>How fees work and how to minimize them</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card" onclick="showPage('help-article'); return false;"><div class="popular-article-content">
+                    <h4>Setting up two-factor authentication</h4>
+                    <p>Secure your account with 2FA</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card" onclick="showPage('help-article'); return false;"><div class="popular-article-content">
+                    <h4>How to withdraw Bitcoin to my wallet</h4>
+                    <p>Transfer Bitcoin to your personal wallet</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card" onclick="showPage('help-article'); return false;"><div class="popular-article-content">
+                    <h4>Setting up recurring purchases</h4>
+                    <p>Automate your Bitcoin buying strategy</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="help-faq">
+              <h2 class="section-title">Frequently Asked Questions</h2>
+              <div class="faq-accordion">
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    What is Bitcoin?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </summary>
+                  <div class="faq-answer">
+                    Bitcoin is a decentralized digital currency that allows peer-to-peer transactions without the need for intermediaries like banks. It was created in 2009 by an anonymous person or group using the pseudonym Satoshi Nakamoto.
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    How do I buy Bitcoin on Stacked?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </summary>
+                  <div class="faq-answer">
+                    Buying Bitcoin on Stacked is simple: 1) Create an account and verify your identity, 2) Deposit NZD via bank transfer, 3) Navigate to the Buy screen and enter the amount you want to purchase, 4) Confirm your order.
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    Is my Bitcoin safe with Stacked?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </summary>
+                  <div class="faq-answer">
+                    We take security seriously. The majority of customer Bitcoin is stored in cold storage (offline wallets) that are geographically distributed and protected by multiple security measures.
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    What are your fees?
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </summary>
+                  <div class="faq-answer">
+                    Stacked charges a flat 1% fee on all buy and sell orders. There are no hidden fees, deposit fees, or withdrawal fees for Bitcoin.
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="help-contact-section">
+              <div class="help-contact-card">
+                <div class="help-contact-header">
+                  <div class="contact-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <h3>Still need help?</h3>
+                  <p>Can't find what you're looking for? Our support team is here to help.</p>
+                </div>
+
+                <div class="help-contact-options">
+                  <a href="#" class="contact-option">
+                    <div class="option-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                    <div class="option-content">
+                      <h4>Email Support</h4>
+                      <p>Get detailed help from our team</p>
+                    </div>
+                  </a>
+
+                  <a href="#" class="contact-option">
+                    <div class="option-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                      </svg>
+                    </div>
+                    <div class="option-content">
+                      <h4>Live Chat</h4>
+                      <p>Chat with us in real-time</p>
+                    </div>
+                  </a>
+
+                  <a href="#" class="contact-option">
+                    <div class="option-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                      </svg>
+                    </div>
+                    <div class="option-content">
+                      <h4>Community Forum</h4>
+                      <p>Connect with other Stacked users</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- End Main Content Area -->
+
+        </div>
+        <!-- End Help Layout with Sidebar -->
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================
+       PAGE: HELP ARTICLE
+       ============================================ -->
+  <div id="help-article" class="page-section">
+    <article class="help-article-page">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <span class="separator">/</span>
+          <a href="#" onclick="showPage('help-section'); return false;">Help</a>
+          <span class="separator">/</span>
+          <a href="#">Getting Started</a>
+          <span class="separator">/</span>
+          <span class="current">How to verify my identity</span>
+        </nav>
+
+        <div class="help-article-layout">
+          <aside class="help-sidebar">
+            <nav class="sidebar-nav">
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Learn</h3>
+                <a href="#" class="sidebar-link">About Stacked</a>
+                <a href="#" class="sidebar-link">Bitcoin for Beginners</a>
+                <a href="#" class="sidebar-link">Lightning Network Education</a>
+                <a href="#" class="sidebar-link">Saving in Bitcoin</a>
+                <a href="#" class="sidebar-link">How to use Bitcoin</a>
+                <a href="#" class="sidebar-link">Bitcoin and NZ Law</a>
+              </div>
+              
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Support</h3>
+                <a href="#" class="sidebar-link">Getting Started</a>
+                <a href="#" class="sidebar-link is-active">How to verify my identity</a>
+                <a href="#" class="sidebar-link">Stacked Products</a>
+                <a href="#" class="sidebar-link">The Stacked Wallet</a>
+                <a href="#" class="sidebar-link">Merchant Services</a>
+              </div>
+            </nav>
+          </aside>
+
+          <div class="help-article-main">
+            <header class="help-article-header">
+              <h1 class="help-article-title">How to verify my identity</h1>
+              <time class="help-article-updated">Updated 20 January 2026</time>
+            </header>
+
+            <div class="help-article-content">
+              <p>Identity verification is required to buy, sell, and withdraw Bitcoin on Stacked. This process helps us comply with New Zealand's Anti-Money Laundering (AML) regulations and keeps our platform safe for all users.</p>
+
+              <h2>What you'll need</h2>
+              <p>Before starting the verification process, make sure you have:</p>
+              <ul>
+                <li>A valid New Zealand driver's licence or passport</li>
+                <li>A smartphone or computer with a camera</li>
+                <li>Good lighting for taking photos</li>
+              </ul>
+
+              <h2>Step-by-step guide</h2>
+              <h3>1. Start verification</h3>
+              <p>Log into your Stacked account and navigate to Settings → Identity Verification. Click "Start Verification" to begin.</p>
+
+              <h3>2. Enter your details</h3>
+              <p>Fill in your personal information exactly as it appears on your ID document. This includes your full legal name, date of birth, and address.</p>
+
+              <h3>3. Upload your ID</h3>
+              <p>Take a clear photo of the front of your ID document. Make sure all four corners are visible and the text is readable. If using a passport, photograph the main information page.</p>
+
+              <h3>4. Take a selfie</h3>
+              <p>Take a photo of yourself holding your ID next to your face. This helps us confirm that you're the person on the document.</p>
+
+              <h3>5. Wait for approval</h3>
+              <p>Our team reviews verification requests within 24 hours during business days. You'll receive an email once your verification is complete.</p>
+
+              <h2>Troubleshooting</h2>
+              <p>If your verification is rejected, you may need to:</p>
+              <ul>
+                <li>Retake photos in better lighting</li>
+                <li>Ensure your ID hasn't expired</li>
+                <li>Make sure all information matches exactly</li>
+              </ul>
+
+              <blockquote>
+                <strong>Tip:</strong> Use natural lighting and avoid glare on your ID when taking photos. This significantly improves approval rates.
+              </blockquote>
+            </div>
+
+            <div class="article-feedback">
+              <p class="feedback-question">Was this article helpful?</p>
+              <div class="feedback-buttons">
+                <button type="button" class="feedback-btn feedback-yes">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/>
+                  </svg>
+                  Yes
+                </button>
+                <button type="button" class="feedback-btn feedback-no">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10 15v4a3 3 0 003 3l4-9V2H5.72a2 2 0 00-2 1.7l-1.38 9a2 2 0 002 2.3zm7-13h2.67A2.31 2.31 0 0122 4v7a2.31 2.31 0 01-2.33 2H17"/>
+                  </svg>
+                  No
+                </button>
+              </div>
+            </div>
+
+            <div class="related-help-articles">
+              <h3>Related Articles</h3>
+              <ul class="related-list">
+                <li><a href="#">Creating your account</a></li>
+                <li><a href="#">Setting up two-factor authentication</a></li>
+                <li><a href="#">Making your first purchase</a></li>
+                <li><a href="#">Depositing NZD via bank transfer</a></li>
+              </ul>
+            </div>
+
+            <!-- Popular Articles Section (GifGaf-style) -->
+            <div class="popular-help-articles">
+              <h3>Popular Articles</h3>
+              <div class="popular-articles-grid">
+                <a href="#" class="popular-article-card"><div class="popular-article-content">
+                    <h4>What is the Lightning Network?</h4>
+                    <p>Learn about instant Bitcoin payments and how to use them.</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card"><div class="popular-article-content">
+                    <h4>Understanding Bitcoin transaction fees</h4>
+                    <p>How fees work and how to minimize them for better value.</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card"><div class="popular-article-content">
+                    <h4>Setting up two-factor authentication</h4>
+                    <p>Secure your account with an extra layer of protection.</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card"><div class="popular-article-content">
+                    <h4>How to withdraw Bitcoin to my wallet</h4>
+                    <p>Transfer your Bitcoin to your personal custody wallet.</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card"><div class="popular-article-content">
+                    <h4>Setting up recurring purchases</h4>
+                    <p>Automate your Bitcoin buying strategy with DCA.</p>
+                  </div>
+                </a>
+
+                <a href="#" class="popular-article-card"><div class="popular-article-content">
+                    <h4>Making your first Bitcoin purchase</h4>
+                    <p>Complete your first buy order on the Stacked platform.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Still Need Help Section (GifGaf-style) -->
+            <div class="help-contact-section">
+              <div class="help-contact-card">
+                <div class="help-contact-header">
+                  <div class="contact-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <h3>Still need help?</h3>
+                  <p>Can't find what you're looking for? Our support team is here to help you get the most out of Stacked.</p>
+                </div>
+                
+                <div class="help-contact-options">
+                  <a href="#" class="contact-option">
+                    <div class="option-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                    <div class="option-content">
+                      <h4>Email Support</h4>
+                      <p>Get detailed help from our team</p>
+                    </div>
+                  </a>
+                  
+                  <a href="#" class="contact-option">
+                    <div class="option-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                      </svg>
+                    </div>
+                    <div class="option-content">
+                      <h4>Live Chat</h4>
+                      <p>Chat with us in real-time</p>
+                    </div>
+                  </a>
+                  
+                  <a href="#" class="contact-option">
+                    <div class="option-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                      </svg>
+                    </div>
+                    <div class="option-content">
+                      <h4>Community Forum</h4>
+                      <p>Connect with other Stacked users</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <nav class="help-article-nav">
+              <a href="#" class="nav-prev">
+                <span class="nav-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                  </svg>
+                  Previous
+                </span>
+                <span class="nav-title">Creating your account</span>
+              </a>
+              <a href="#" class="nav-next">
+                <span class="nav-direction">
+                  Next
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                  </svg>
+                </span>
+                <span class="nav-title">Making your first purchase</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- FOOTER (shared across all pages) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4 class="footer-column-title">Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="#">Bitcoin for Savers</a></li>
+            <li><a href="#">Bitcoin for Businesses</a></li>
+            <li><a href="#">Financial Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-column-title">Help</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showPage('help-section'); return false;">Help Center</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-column-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showPage('article'); return false;">About Us</a></li>
+            <li><a href="#" onclick="showPage('news-listing'); return false;">News</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-column-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stacked. All rights reserved.</div>
+        <div>NZBN: 9429051417789 | FSP: FSP1005773</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

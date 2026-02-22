@@ -21,7 +21,7 @@ const SocialProofBar = () => {
         {/* Payment methods - scrollable on mobile */}
         <div className="flex justify-start md:justify-center items-center gap-6 md:gap-8 lg:gap-16 mb-8 md:mb-10 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
           {features.map((feature, index) => (
-            <div key={index} className="flex items-center gap-2 text-muted-foreground flex-shrink-0">
+            <div key={index} className="flex items-center gap-2 text-foreground flex-shrink-0">
               <feature.icon className="w-4 h-4 md:w-5 md:h-5" />
               <span className="text-xs md:text-sm font-medium whitespace-nowrap">{feature.label}</span>
             </div>

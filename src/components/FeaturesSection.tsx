@@ -35,7 +35,7 @@ const FeaturesSection = () => {
             Everything you need to make bitcoin{" "}
             <span className="text-primary">part of your every day life</span>
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-foreground text-base md:text-lg max-w-2xl mx-auto">
             Powerful features designed to make Bitcoin simple, secure, and accessible for every Kiwi.
           </p>
         </div>
@@ -46,10 +46,10 @@ const FeaturesSection = () => {
               key={index}
               className={`flex flex-col ${
                 index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } gap-4 lg:gap-6 items-center`}
+              } gap-4 lg:gap-10 items-center lg:justify-center`}
             >
               {/* Image in iPhone Frame */}
-              <div className="flex-1 flex justify-center">
+              <div className="w-full lg:w-auto flex justify-center">
                 <div className="relative">
                   <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full scale-75" />
                   {/* iPhone Frame - Black */}
@@ -70,11 +70,15 @@ const FeaturesSection = () => {
               </div>
 
               {/* Content */}
-              <div className="flex-1 text-center lg:text-left">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4">
+              <div
+                className={`w-full lg:max-w-md text-center ${
+                  index % 2 === 0 ? "lg:text-left" : "lg:text-right"
+                }`}
+              >
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground text-base md:text-lg max-w-md mx-auto lg:mx-0">
+                <p className="text-foreground text-base md:text-lg max-w-md mx-auto lg:mx-0">
                   {feature.description}
                 </p>
               </div>

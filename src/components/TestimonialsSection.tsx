@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
           </div>
           <span className="text-sm md:text-base text-muted-foreground">4.7 out of 5</span>
         </div>
-        <p className="text-center text-sm md:text-base text-muted-foreground mb-8 md:mb-12">
+        <p className="text-center text-sm md:text-base text-foreground mb-8 md:mb-12">
           Based on 29+ reviews on Trustpilot
         </p>
 

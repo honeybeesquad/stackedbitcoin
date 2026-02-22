@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$Title | Stacked</title>
+  <meta name="description" content="$MetaDescription">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="stylesheet" href="/css/stacked.css?v=2.1">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <img src="/images/stacked-logo-wide-teal.png" alt="Stacked" class="site-logo-desktop">
+          <img src="/images/stacked-button-teal.png" alt="Stacked" class="site-logo-mobile">
+        </a>
+
+        <nav class="main-nav">
+          <a href="/solutions">Solutions</a>
+          <a href="/help">Help</a>
+          <a href="/company">Company</a>
+          <a href="/wallet">Wallet</a>
+          <a href="/partners">Partners</a>
+        </nav>
+
+        <div class="header-cta">
+          <a href="/login" class="btn btn-ghost">Log in</a>
+          <a href="/register" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <!-- Mobile menu button (add JS for toggle) -->
+        <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-controls="mobile-menu-drawer" aria-expanded="false" data-mobile-menu-toggle>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" data-mobile-menu-overlay></div>
+  <nav class="mobile-menu-drawer" id="mobile-menu-drawer" aria-hidden="true">
+    <div class="mobile-menu-section">
+      <a href="/solutions" class="mobile-menu-link">Solutions</a>
+      <a href="/help" class="mobile-menu-link">Help</a>
+      <a href="/company" class="mobile-menu-link">Company</a>
+      <a href="/wallet" class="mobile-menu-link">Wallet</a>
+      <a href="/partners" class="mobile-menu-link">Partners</a>
+    </div>
+
+    <div class="mobile-menu-section">
+      <h4 class="mobile-menu-label">Learn</h4>
+      <a href="/help/learn/about-stacked" class="mobile-menu-link">About Stacked</a>
+      <a href="/help/learn/bitcoin-for-beginners" class="mobile-menu-link">Bitcoin for Beginners</a>
+      <a href="/help/learn/lightning-network-education" class="mobile-menu-link">Lightning Network Education</a>
+      <a href="/help/learn/saving-in-bitcoin" class="mobile-menu-link">Saving in Bitcoin</a>
+      <a href="/help/learn/how-to-use-bitcoin" class="mobile-menu-link">How to use Bitcoin</a>
+      <a href="/help/learn/bitcoin-and-nz-law" class="mobile-menu-link">Bitcoin and NZ Law</a>
+    </div>
+
+    <div class="mobile-menu-section">
+      <h4 class="mobile-menu-label">Support</h4>
+      <a href="/help/support/getting-started" class="mobile-menu-link">Getting Started</a>
+      <a href="/help/support/how-to-verify-my-identity" class="mobile-menu-link">How to verify my identity</a>
+      <a href="/help/support/stacked-products" class="mobile-menu-link">Stacked Products</a>
+      <a href="/help/support/the-stacked-wallet" class="mobile-menu-link">The Stacked Wallet</a>
+      <a href="/help/support/merchant-services" class="mobile-menu-link">Merchant Services</a>
+    </div>
+
+    <div class="mobile-menu-section">
+      <a href="/login" class="mobile-menu-link">Log in</a>
+      <a href="/register" class="mobile-menu-link">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    $Layout
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4 class="footer-column-title">Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="/solutions/savers">Bitcoin for Savers</a></li>
+            <li><a href="/solutions/businesses">Bitcoin for Businesses</a></li>
+            <li><a href="/solutions/financial">Financial Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-column-title">Help</h4>
+          <ul class="footer-links">
+            <li><a href="/help/learn">Learn</a></li>
+            <li><a href="/help/support">Support</a></li>
+            <li><a href="/help/faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-column-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="/company/about">About Us</a></li>
+            <li><a href="/company/news">News</a></li>
+            <li><a href="/company/careers">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-column-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2024 Stacked. All rights reserved.</div>
+        <div>NZBN: 9429051417789 | FSP: FSP1005773</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector('[data-mobile-menu-toggle]');
+      var overlay = document.querySelector('[data-mobile-menu-overlay]');
+      var drawer = document.getElementById('mobile-menu-drawer');
+
+      if (!toggle || !overlay || !drawer) return;
+
+      function setOpen(open) {
+        document.body.classList.toggle('mobile-menu-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+
+      toggle.addEventListener('click', function () {
+        var isOpen = document.body.classList.contains('mobile-menu-open');
+        setOpen(!isOpen);
+      });
+
+      overlay.addEventListener('click', function () {
+        setOpen(false);
+      });
+
+      drawer.addEventListener('click', function (event) {
+        var link = event.target.closest('a');
+        if (link) setOpen(false);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
+</body>
+</html>

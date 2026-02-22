@@ -1,14 +1,14 @@
-import heroVideo from "@/assets/hero-video.mp4";
+import walletMockup from "@/assets/Wallet mockup.png";
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const words = ["MONEY", "SAVINGS", "SPENDING", "INVESTING", "FREEDOM", "PRIVACY", "FINANCE"];
+  const words = ["MONEY", "SAVINGS", "SPENDING", "INVESTING", "FREEDOM", "PRIVACY", "FINANCE", "SECURITY", "WEALTH", "OWNERSHIP", "PAYMENTS", "INDEPENDENCE"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 2000); // Change word every 2 seconds
+    }, 1600); // Change word every 1.6 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -19,31 +19,28 @@ const HeroSection = () => {
         <div className="flex flex-col items-center text-center">
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-primary leading-none mb-8 md:mb-12 tracking-tight">
-            BITCOIN IS BETTER<br /><span style={{ color: '#D9F3F1' }}>{words[currentWordIndex]}</span>.
+            BITCOIN IS BETTER<br /><span style={{ color: '#FFFFFF' }}>{words[currentWordIndex]}</span>
           </h1>
 
-          {/* Video */}
-          <div className="relative mb-8 md:mb-12">
+          {/* Wallet Mockup */}
+          <div className="relative -mb-8 md:-mb-16 -mt-16 md:-mt-28">
             <div className="relative">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-75" />
-              <video
-                src={heroVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="relative z-10 w-40 sm:w-48 md:w-56 lg:w-64 rounded-3xl drop-shadow-2xl"
+              <img
+                src={walletMockup}
+                alt="Stacked Wallet"
+                className="relative z-10 w-72 sm:w-80 md:w-96 lg:w-[480px] drop-shadow-2xl"
               />
             </div>
           </div>
 
           {/* Subheadline */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent leading-tight mb-4 md:mb-6">
-            Stack sats with Stacked.
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-tight mb-4 md:mb-6">
+            Stack More. Do More.
           </h2>
 
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-xl">
+          <p className="text-base md:text-lg lg:text-xl text-white mb-6 md:mb-8 max-w-xl">
             New Zealand's most trusted Bitcoin-only platform. Buy, sell, and hold Bitcoin with the lowest fees and lightning-fast transactions.
           </p>
 
@@ -56,7 +53,7 @@ const HeroSection = () => {
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+              className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity pt-[1px]"
             >
               Get Started
             </button>
