@@ -16,7 +16,7 @@ const Footer = () => {
               />
             </a>
             <p className="text-xs md:text-sm text-foreground">
-              New Zealand's trusted Bitcoin-only platform. Building financial freedom, one sat at a time.
+              New Zealand's most trusted Bitcoin-only exhange and payments platform.
             </p>
             <div className="mt-5 space-y-3 text-xs md:text-sm text-foreground">
               <div className="flex items-center gap-2">
@@ -63,9 +63,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-primary mb-3 md:mb-4 text-sm md:text-base">Legal</h4>
             <ul className="space-y-2 text-xs md:text-sm text-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">AML Policy</a></li>
+              <li><a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</a></li>
+              <li><a href="/otc-terms" className="hover:text-foreground transition-colors">OTC Terms</a></li>
+              <li><a href="/fees-and-limits" className="hover:text-foreground transition-colors">Fees and Limits</a></li>
             </ul>
           </div>
         </div>
