@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Stacked - New Zealand's Bitcoin-Only Platform</title>
+  <desc id="desc">Stacked branded social sharing image with tagline and key value proposition.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f3340"/>
+      <stop offset="100%" stop-color="#0b2831"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="920" cy="110" r="180" fill="#12b8be" opacity="0.08"/>
+  <circle cx="110" cy="580" r="220" fill="#12b8be" opacity="0.08"/>
+  <g fill="#12b8be">
+    <path d="M120 176 220 119l100 57-100 57-100-57Zm20 57 80 46 80-46 80 46v92l-80 46v92l-20 11v-103l-80-46-80 46-20-11 100-57-100-57v-92l80-46Zm20 92 80 46 80-46-80-46-80 46Z"/>
+  </g>
+  <text x="420" y="260" fill="#12b8be" font-family="Arial, Helvetica, sans-serif" font-size="108" font-weight="700">Stacked</text>
+  <text x="420" y="322" fill="#d9f3f1" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="500">New Zealand's Bitcoin-only exchange</text>
+  <text x="420" y="368" fill="#d9f3f1" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="500">and payments platform</text>
+  <text x="120" y="560" fill="#d9f3f1" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600">Low fees. Lightning-fast. Self-custody first.</text>
+</svg>

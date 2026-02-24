@@ -1,0 +1,265 @@
+/* Gotham Font Face Declarations */
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-XLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Black.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./fonts/Gotham TrueType/Gotham-Ultra.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Stacked Brand Dark Theme: Dark slate bg, teal primary, #D9F3F1 accent */
+    --background: 193 39% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 191 35% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 191 35% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 179 79% 38%;
+    --primary-foreground: 191 38% 12%;
+
+    --secondary: 191 30% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 191 30% 20%;
+    --muted-foreground: 191 20% 65%;
+
+    --accent: 170 53% 91%;
+    --accent-foreground: 191 38% 12%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 191 25% 22%;
+    --input: 191 25% 22%;
+    --ring: 179 79% 38%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 191 38% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 179 79% 38%;
+    --sidebar-primary-foreground: 191 38% 12%;
+    --sidebar-accent: 191 30% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 191 25% 22%;
+    --sidebar-ring: 179 79% 38%;
+
+    --chart-1: 179 79% 45%;
+    --chart-2: 191 60% 40%;
+    --chart-3: 160 60% 55%;
+    --chart-4: 200 65% 55%;
+    --chart-5: 220 55% 60%;
+
+    --sidebar: 191 38% 10%;
+    
+    --stacked-teal: 179 79% 38%;
+    --stacked-dark: 191 38% 12%;
+
+    --font-sans: 'Gotham', 'Gotham SSm', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+    --tracking-normal: 0em;
+
+    --spacing: 0.25rem;
+  }
+
+  .dark {
+    /* Stacked Brand Dark Mode */
+    --background: 193 39% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 191 35% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 191 35% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 179 79% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 191 30% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 191 30% 20%;
+    --muted-foreground: 191 20% 65%;
+
+    --accent: 179 79% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 191 25% 22%;
+    --input: 191 25% 22%;
+    --ring: 179 79% 38%;
+    
+    --sidebar-background: 191 38% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 179 79% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 191 30% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 191 25% 22%;
+    --sidebar-ring: 179 79% 38%;
+    
+    --chart-1: 179 79% 45%;
+    --chart-2: 191 60% 40%;
+    --chart-3: 160 60% 55%;
+    --chart-4: 200 65% 55%;
+    --chart-5: 220 55% 60%;
+    
+    --sidebar: 191 38% 10%;
+    
+    --stacked-teal: 179 79% 38%;
+    --stacked-dark: 191 38% 12%;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .legal-content h1 {
+    @apply text-3xl md:text-4xl font-bold text-primary mb-6;
+  }
+
+  .legal-content h2 {
+    @apply text-xl md:text-2xl font-semibold text-primary mt-8 mb-3;
+  }
+
+  .legal-content h3 {
+    @apply text-lg md:text-xl font-semibold text-primary mt-6 mb-2;
+  }
+
+  .legal-content h4 {
+    @apply text-base md:text-lg font-semibold text-primary mt-5 mb-2;
+  }
+
+  .legal-content p {
+    @apply text-sm md:text-base text-foreground leading-relaxed mb-3;
+  }
+
+  .legal-content ul,
+  .legal-content ol {
+    @apply mb-4 pl-6 text-sm md:text-base text-foreground space-y-2;
+  }
+
+  .legal-content ul {
+    list-style: disc;
+  }
+
+  .legal-content ol {
+    list-style: decimal;
+  }
+
+  .legal-content a {
+    @apply text-primary underline underline-offset-2 hover:text-foreground transition-colors;
+  }
+
+  .legal-content hr {
+    @apply border-border my-6;
+  }
+}
